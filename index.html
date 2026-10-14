@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALOKA 26' | Cultural Fest</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Configuration for Dynamic Themes -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            theme: {
+              bg: 'var(--theme-bg)',
+              card: 'var(--theme-card)',
+              accent: 'var(--theme-accent)',
+              'accent-hover': 'var(--theme-accent-hover)',
+              main: 'var(--theme-text-main)',
+              muted: 'var(--theme-text-muted)'
+            }
+          },
+          fontFamily: {
+            heading: ['var(--theme-font-heading)', 'serif'],
+            body: ['var(--theme-font-body)', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Cinzel for headings, Poppins for text -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Theme 1: Traditional Maroon & Gold (Default) */
+    :root {
+      --theme-bg: #450a0a; 
+      --theme-bg-image: url('traditional.png'); 
+      --theme-card: #7f1d1d; 
+      --theme-accent: #eab308; 
+      --theme-accent-hover: #ca8a04; 
+      --theme-text-main: #fef08a; 
+      --theme-text-muted: #fef9c3; 
+      --theme-font-heading: 'Cinzel', serif;
+      --theme-font-body: 'Poppins', sans-serif;
+    }
+
+    /* Theme 2: Cyberpunk Neon */
+    [data-theme="cyberpunk"] {
+      --theme-bg: #0f172a;
+      --theme-bg-image: url('cyberpunk.png');
+      --theme-card: #1e293b;
+      --theme-accent: #06b6d4;
+      --theme-accent-hover: #0891b2;
+      --theme-text-main: #f8fafc;
+      --theme-text-muted: #cbd5e1;
+      --theme-font-heading: 'Courier New', monospace;
+    }
+
+    /* Theme 3: Emerald Forest */
+    [data-theme="emerald"] {
+      --theme-bg: #064e3b;
+      --theme-bg-image: url('emerald.png');
+      --theme-card: #065f46;
+      --theme-accent: #10b981;
+      --theme-accent-hover: #059669;
+      --theme-text-main: #ecfdf5;
+      --theme-text-muted: #a7f3d0;
+    }
+
+    /* Theme 4: Midnight Purple */
+    [data-theme="purple"] {
+      --theme-bg: #2e1065;
+      --theme-bg-image: url('purple.png');
+      --theme-card: #3b0764;
+      --theme-accent: #d946ef;
+      --theme-accent-hover: #c026d3;
+      --theme-text-main: #fdf4ff;
+      --theme-text-muted: #f0abfc;
+    }
+
+    /* Theme 5: Ocean Blue */
+    [data-theme="ocean"] {
+      --theme-bg: #082f49;
+      --theme-bg-image: url('ocean.png');
+      --theme-card: #0c4a6e;
+      --theme-accent: #38bdf8;
+      --theme-accent-hover: #0ea5e9;
+      --theme-text-main: #f0f9ff;
+      --theme-text-muted: #bae6fd;
+    }
+
+    /* Theme 6: Sunset Orange */
+    [data-theme="sunset"] {
+      --theme-bg: #7c2d12;
+      --theme-bg-image: url('sunset.png');
+      --theme-card: #9a3412;
+      --theme-accent: #f97316;
+      --theme-accent-hover: #ea580c;
+      --theme-text-main: #fff7ed;
+      --theme-text-muted: #fed7aa;
+    }
+
+    /* Theme 7: Monochrome Dark */
+    [data-theme="monochrome"] {
+      --theme-bg: #171717;
+      --theme-bg-image: url('monochrome.png');
+      --theme-card: #262626;
+      --theme-accent: #a3a3a3;
+      --theme-accent-hover: #737373;
+      --theme-text-main: #ffffff;
+      --theme-text-muted: #d4d4d4;
+    }
+
+    /* Theme 8: Sakura Pink */
+    [data-theme="sakura"] {
+      --theme-bg: #831843;
+      --theme-bg-image: url('sakura.png');
+      --theme-card: #9d174d;
+      --theme-accent: #f472b6;
+      --theme-accent-hover: #ec4899;
+      --theme-text-main: #fdf2f8;
+      --theme-text-muted: #fbcfe8;
+    }
+
+    /* Theme 9: Retro Vintage */
+    [data-theme="retro"] {
+      --theme-bg: #422006;
+      --theme-bg-image: url('retro.png');
+      --theme-card: #713f12;
+      --theme-accent: #facc15;
+      --theme-accent-hover: #eab308;
+      --theme-text-main: #fefce8;
+      --theme-text-muted: #fef08a;
+    }
+
+    /* Theme 10: Electric Indigo */
+    [data-theme="indigo"] {
+      --theme-bg: #1e1b4b;
+      --theme-bg-image: url('indigo.png');
+      --theme-card: #312e81;
+      --theme-accent: #818cf8;
+      --theme-accent-hover: #6366f1;
+      --theme-text-main: #eef2ff;
+      --theme-text-muted: #c7d2fe;
+    }
+
+    /* Fixed texture rendering */
+    .bg-texture {
+      background-image: var(--theme-bg-image);
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15; 
+    }
+
+    body {
+      transition: background-color 0.4s ease, color 0.4s ease;
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="bg-theme-bg text-theme-main font-body antialiased selection:bg-theme-accent selection:text-theme-bg relative">
+
+  <!-- Universal Background Texture Layer -->
+  <div class="fixed inset-0 z-[-1] bg-texture transition-all duration-500 pointer-events-none"></div>
+
+  <!-- Navbar / Global Menu Bar -->
+  <nav class="fixed w-full z-50 bg-theme-card/95 backdrop-blur-md shadow-lg border-b border-theme-accent/30 transition-colors duration-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center gap-2">
+          <i class="fas fa-lotus text-theme-accent text-2xl"></i>
+          <span class="font-heading font-bold text-xl md:text-2xl tracking-wider text-theme-accent">ALOKA 26'</span>
+        </div>
+        
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:flex items-center gap-8 text-theme-main font-semibold tracking-wide">
+          <a href="#home" data-i18n="navHome" class="hover:text-theme-accent transition-colors">Home</a>
+          <a href="#events" data-i18n="navEvents" class="hover:text-theme-accent transition-colors">Event</a>
+          <a href="#schedule" data-i18n="navSchedule" class="hover:text-theme-accent transition-colors">Schedule</a>
+          <a href="#team" data-i18n="navTeam" class="hover:text-theme-accent transition-colors">Team Member</a>
+        </div>
+
+        <!-- Controls: Language & Theme & Mobile Menu Toggle -->
+        <div class="flex items-center gap-3">
+          
+          <!-- Theme Selector -->
+          <div class="relative">
+            <select id="themeSelector" class="appearance-none bg-theme-bg/50 border border-theme-accent text-theme-accent text-xs md:text-sm rounded py-1 pl-2 pr-6 focus:outline-none focus:ring-2 focus:ring-theme-accent cursor-pointer shadow-sm">
+              <option value="default">Traditional</option>
+              <option value="cyberpunk">Cyberpunk</option>
+              <option value="emerald">Emerald</option>
+              <option value="purple">Purple</option>
+              <option value="ocean">Ocean</option>
+              <option value="sunset">Sunset</option>
+              <option value="monochrome">Dark</option>
+              <option value="sakura">Sakura</option>
+              <option value="retro">Retro</option>
+              <option value="indigo">Indigo</option>
+            </select>
+            <i class="fas fa-chevron-down absolute right-2 top-1/2 -translate-y-1/2 text-[10px] pointer-events-none text-theme-accent"></i>
+          </div>
+
+          <!-- Language Selector -->
+          <div class="relative">
+            <select id="langSelector" class="appearance-none bg-theme-bg/50 border border-theme-accent text-theme-accent text-xs md:text-sm rounded py-1 pl-2 pr-6 focus:outline-none focus:ring-2 focus:ring-theme-accent cursor-pointer shadow-sm">
+              <option value="en">English</option>
+              <option value="bn">বাংলা</option>
+              <option value="hi">हिंदी</option>
+            </select>
+            <i class="fas fa-chevron-down absolute right-2 top-1/2 -translate-y-1/2 text-[10px] pointer-events-none text-theme-accent"></i>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobileMenuBtn" class="lg:hidden text-theme-accent text-xl ml-1 focus:outline-none">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-theme-card border-b border-theme-accent/30 shadow-xl absolute w-full left-0 top-16 transition-all">
+      <div class="flex flex-col px-4 pt-2 pb-6 gap-4 text-center font-semibold text-theme-main">
+        <a href="#home" data-i18n="navHome" class="hover:text-theme-accent transition-colors block py-2 border-b border-white/5">Home</a>
+        <a href="#events" data-i18n="navEvents" class="hover:text-theme-accent transition-colors block py-2 border-b border-white/5">Event</a>
+        <a href="#schedule" data-i18n="navSchedule" class="hover:text-theme-accent transition-colors block py-2 border-b border-white/5">Schedule</a>
+        <a href="#team" data-i18n="navTeam" class="hover:text-theme-accent transition-colors block py-2">Team Member</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section (Home) -->
+  <header id="home" class="pt-28 pb-16 px-4 text-center relative overflow-hidden min-h-[90vh] flex flex-col justify-center">
+    <!-- Background Icon Decoration -->
+    <div class="absolute inset-0 opacity-5 flex justify-center items-center pointer-events-none z-0">
+       <i class="fas fa-om text-[15rem] md:text-[25rem] text-theme-accent"></i>
+    </div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <h2 data-i18n="orgBy" class="text-sm md:text-lg text-theme-muted mb-3 italic font-serif">Organised by Dj army</h2>
+      <h1 class="text-6xl md:text-8xl font-black mb-4 text-theme-accent drop-shadow-xl font-heading tracking-tight">ALOKA 26'</h1>
+      <p data-i18n="heroSub" class="text-xl md:text-3xl mb-10 text-theme-muted font-light">Step Into a Divine Avatar</p>
+      
+      <!-- Date & Venue Block -->
+      <div class="inline-block border border-theme-accent/40 rounded-2xl px-8 py-5 mb-10 bg-theme-card/85 backdrop-blur-md shadow-2xl">
+        <p data-i18n="festDates" class="text-2xl md:text-3xl font-bold text-theme-main font-heading">8th & 11th November 2026</p>
+        <p data-i18n="venue" class="text-sm md:text-base mt-3 text-theme-muted tracking-wide">School Para | Kali Mandir | Nutangram</p>
+      </div>
+
+      <div>
+        <a href="#events" data-i18n="exploreBtn" class="inline-flex items-center gap-3 bg-theme-accent text-theme-bg hover:bg-theme-accent-hover font-bold py-3.5 px-8 rounded-full shadow-lg shadow-theme-accent/20 transition-all transform hover:scale-105">
+          Explore Events <i class="fas fa-arrow-down"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Events Section -->
+  <section id="events" class="py-20 px-4 max-w-7xl mx-auto relative z-10 scroll-mt-16">
+    <div class="text-center mb-16">
+      <h2 data-i18n="eventsTitle" class="text-4xl md:text-5xl font-bold text-theme-accent font-heading mb-4">Featured Events</h2>
+      <div class="h-1.5 w-24 bg-theme-accent mx-auto rounded-full opacity-80"></div>
+    </div>
+
+    <!-- Events Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      
+      <!-- Event 1: APARUPA -->
+      <div class="bg-theme-card/85 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-theme-accent/20 hover:border-theme-accent/80 hover:shadow-2xl hover:shadow-theme-accent/20 transition-all duration-300 group flex flex-col">
+        <div class="relative w-full bg-black/50 flex items-center justify-center p-4 md:p-6 overflow-hidden">
+          <div class="absolute inset-0 bg-theme-accent opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl"></div>
+          <img src="Aparupa.png" alt="Aparupa Poster" class="w-full h-auto max-h-[380px] object-contain rounded-xl group-hover:scale-[1.02] transition-transform duration-500 relative z-10 shadow-2xl border border-white/10" onerror="this.src='https://images.unsplash.com/photo-1605389650059-e93e2b10a26d?auto=format&fit=crop&q=80&w=600';">
+        </div>
+        <div class="p-6 md:p-8 flex-grow flex flex-col justify-between border-t border-theme-accent/10 relative">
+          <div>
+            <p data-i18n="aparupaDesc" class="text-theme-main text-base md:text-lg mb-5 font-medium leading-relaxed">Rangoli & Alpona Reel Competition (Only for Females)</p>
+            <div class="flex items-center gap-3 text-sm mb-6 font-bold text-theme-accent bg-theme-bg/80 w-fit px-4 py-2 rounded-lg border border-theme-accent/20 shadow-inner">
+              <i class="far fa-calendar-alt text-lg"></i> <span>8.11.2026</span>
+            </div>
+          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJfPNE5cXSSaE0CGRNlY-_HwJ6ECcmZFksUlEzV5HlMCBDYQ/viewform" target="_blank" class="w-full inline-flex justify-center items-center gap-2 bg-theme-accent text-theme-bg hover:bg-theme-accent-hover font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg transform active:scale-95 text-lg">
+            <span data-i18n="regBtn">Register Now</span> <i class="fas fa-arrow-right text-sm ml-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Event 2: BAHUROOPI -->
+      <div class="bg-theme-card/85 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-theme-accent/20 hover:border-theme-accent/80 hover:shadow-2xl hover:shadow-theme-accent/20 transition-all duration-300 group flex flex-col">
+        <div class="relative w-full bg-black/50 flex items-center justify-center p-4 md:p-6 overflow-hidden">
+          <div class="absolute inset-0 bg-theme-accent opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl"></div>
+          <img src="Bahuroopi.png" alt="Bahuroopi Poster" class="w-full h-auto max-h-[380px] object-contain rounded-xl group-hover:scale-[1.02] transition-transform duration-500 relative z-10 shadow-2xl border border-white/10" onerror="this.src='https://images.unsplash.com/photo-1595166318903-885741639d67?auto=format&fit=crop&q=80&w=600';">
+        </div>
+        <div class="p-6 md:p-8 flex-grow flex flex-col justify-between border-t border-theme-accent/10 relative">
+          <div>
+            <p data-i18n="bahuroopiDesc" class="text-theme-main text-base md:text-lg mb-5 font-medium leading-relaxed">Cosplay, Fancy Dress & Ramp Walk. Theme: Indian Gods, Mythology, Divine.</p>
+            <div class="flex items-center gap-3 text-sm mb-6 font-bold text-theme-accent bg-theme-bg/80 w-fit px-4 py-2 rounded-lg border border-theme-accent/20 shadow-inner">
+              <i class="far fa-calendar-alt text-lg"></i> <span>11.11.2026 (5:00 PM)</span>
+            </div>
+          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdalKJEoGARSaGp9juHzRgSLZf7HCSnZ1nnPd606X6d06a0VA/viewform" target="_blank" class="w-full inline-flex justify-center items-center gap-2 bg-theme-accent text-theme-bg hover:bg-theme-accent-hover font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg transform active:scale-95 text-lg">
+            <span data-i18n="regBtn">Register Now</span> <i class="fas fa-arrow-right text-sm ml-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Event 3: RANGAMANCHA -->
+      <div class="bg-theme-card/85 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-theme-accent/20 hover:border-theme-accent/80 hover:shadow-2xl hover:shadow-theme-accent/20 transition-all duration-300 group flex flex-col">
+        <div class="relative w-full bg-black/50 flex items-center justify-center p-4 md:p-6 overflow-hidden">
+          <div class="absolute inset-0 bg-theme-accent opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl"></div>
+          <img src="Rangamancha.png" alt="Rangamancha Poster" class="w-full h-auto max-h-[380px] object-contain rounded-xl group-hover:scale-[1.02] transition-transform duration-500 relative z-10 shadow-2xl border border-white/10" onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=600';">
+        </div>
+        <div class="p-6 md:p-8 flex-grow flex flex-col justify-between border-t border-theme-accent/10 relative">
+          <div>
+            <p data-i18n="rangamanchaDesc" class="text-theme-main text-base md:text-lg mb-5 font-medium leading-relaxed">Singing, Dancing, Instrumental & Poetry Recitation.</p>
+            <div class="flex items-center gap-3 text-sm mb-6 font-bold text-theme-accent bg-theme-bg/80 w-fit px-4 py-2 rounded-lg border border-theme-accent/20 shadow-inner">
+              <i class="far fa-calendar-alt text-lg"></i> <span>11.11.2026 (5:00 PM)</span>
+            </div>
+          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeyAAsk48zjS9lL-ckRw3NX4qTz3Bnv73_FCU985pBNNRJBew/viewform" target="_blank" class="w-full inline-flex justify-center items-center gap-2 bg-theme-accent text-theme-bg hover:bg-theme-accent-hover font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg transform active:scale-95 text-lg">
+            <span data-i18n="regBtn">Register Now</span> <i class="fas fa-arrow-right text-sm ml-1"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section id="schedule" class="py-20 bg-black/50 backdrop-blur-sm px-4 border-y border-theme-accent/10 scroll-mt-16">
+    <div class="max-w-4xl mx-auto">
+      <h2 data-i18n="scheduleTitle" class="text-3xl md:text-4xl font-bold text-center text-theme-accent font-heading mb-12">Fest Schedule</h2>
+      
+      <div class="space-y-8">
+        <!-- Day 1 -->
+        <div class="bg-theme-card/95 p-6 md:p-8 rounded-2xl border-l-4 border-theme-accent shadow-xl hover:shadow-2xl transition-shadow relative overflow-hidden">
+          <i class="fas fa-star absolute -bottom-4 -right-4 text-[8rem] text-theme-bg opacity-20 pointer-events-none"></i>
+          
+          <h3 class="text-2xl font-bold mb-6 font-heading text-theme-main border-b border-theme-accent/20 pb-3">8th Nov 2026</h3>
+          <ul class="space-y-5 text-theme-muted relative z-10">
+            <li class="flex items-start gap-4">
+              <div class="bg-theme-accent/20 p-3 rounded-full text-theme-accent shrink-0 border border-theme-accent/30 shadow-sm">
+                <i class="fas fa-video w-5 h-5 flex items-center justify-center"></i>
+              </div>
+              <div class="pt-1">
+                <p class="font-bold text-xl text-theme-main tracking-wide">APARUPA Competition</p>
+                <p class="text-base mt-1.5 opacity-90">Rangoli & Alpona reel submission and judging.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="bg-theme-card/95 p-6 md:p-8 rounded-2xl border-l-4 border-theme-accent shadow-xl hover:shadow-2xl transition-shadow relative overflow-hidden">
+          <i class="fas fa-masks-theater absolute -bottom-4 -right-4 text-[8rem] text-theme-bg opacity-20 pointer-events-none"></i>
+          
+          <h3 class="text-2xl font-bold mb-6 font-heading text-theme-main border-b border-theme-accent/20 pb-3">11th Nov 2026</h3>
+          <ul class="space-y-6 text-theme-muted relative z-10">
+            <li class="flex items-start gap-4">
+              <div class="bg-theme-accent/20 p-3 rounded-full text-theme-accent shrink-0 border border-theme-accent/30 shadow-sm">
+                <i class="fas fa-mask w-5 h-5 flex items-center justify-center"></i>
+              </div>
+              <div class="pt-1">
+                <p class="font-bold text-xl text-theme-main tracking-wide">BAHUROOPI</p>
+                <p class="text-base mt-1.5 opacity-90">Cosplay, Fancy Dress, and Ramp Walk Showcase.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="bg-theme-accent/20 p-3 rounded-full text-theme-accent shrink-0 border border-theme-accent/30 shadow-sm">
+                <i class="fas fa-microphone-alt w-5 h-5 flex items-center justify-center"></i>
+              </div>
+              <div class="pt-1">
+                <p class="font-bold text-xl text-theme-main tracking-wide">RANGAMANCHA (5:00 PM Onwards)</p>
+                <p class="text-base mt-1.5 opacity-90">Sangeet Tarang, Nritya Shakti, Sur-O-Jhankar & Kabita-R Ashor.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Member Section -->
+  <section id="team" class="py-20 px-4 max-w-7xl mx-auto relative z-10 scroll-mt-16">
+    <div class="text-center mb-16">
+      <h2 data-i18n="teamTitle" class="text-4xl md:text-5xl font-bold text-theme-accent font-heading mb-4">Team Members</h2>
+      <div class="h-1.5 w-24 bg-theme-accent mx-auto rounded-full opacity-80"></div>
+      <p data-i18n="teamSub" class="text-theme-muted mt-6 max-w-2xl mx-auto bg-theme-bg/60 inline-block px-4 py-2 rounded-lg backdrop-blur-sm">The dedicated members working behind the scenes to make ALOKA 26' a grand success.</p>
+    </div>
+
+    <!-- Team Grid (14 Members) -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      
+      <!-- Member 1: Rony Mondal -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Rony.jpg" alt="Rony Mondal" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Rony+Mondal&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamRony">Rony Mondal</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole1">Event Head</p>
+      </div>
+
+      <!-- Member 2: Shubhojeet Mondal -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Shubhojeet.jpg" alt="Shubhojeet Mondal" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Shubhojeet+Mondal&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamShubhojeet">Shubhojeet Mondal</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole2">Creative Lead</p>
+      </div>
+
+      <!-- Member 3: Mritunjay Majee -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Mritunjay.jpg" alt="Mritunjay Majee" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Mritunjay+Majee&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamMritunjay">Mritunjay Majee</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole3">Tech Lead</p>
+      </div>
+
+      <!-- Member 4: Chinmoy Majee -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Chinmoy.jpg" alt="Chinmoy Majee" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Chinmoy+Majee&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamChinmoy">Chinmoy Majee</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole4">Tech Lead</p>
+      </div>
+
+      <!-- Member 5: Somnath Mondal -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Somnath.jpg" alt="Somnath Mondal" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Somnath+Mondal&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamSomnath">Somnath Mondal</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole5">Management Lead</p>
+      </div>
+
+      <!-- Member 6: Rintu Mondal -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Rintu.jpg" alt="Rintu Mondal" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Rintu+Mondal&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamRintu">Rintu Mondal</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole6">Finance Head</p>
+      </div>
+
+      <!-- Member 7: Chapa Mondal -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Chapa.jpg" alt="Chapa Mondal" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Chapa+Mondal&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamChapa">Chapa Mondal</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole7">Support Lead</p>
+      </div>
+
+      <!-- Member 8: Pintu Mondal -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Pintu.jpg" alt="Pintu Mondal" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Pintu+Mondal&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamPintu">Pintu Mondal</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole8">Marketing Lead</p>
+      </div>
+
+      <!-- Member 9: Santanu Majee -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Santanu.jpg" alt="Santanu Majee" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Santanu+Majee&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamSantanu">Santanu Majee</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole9">Sponsorship Lead</p>
+      </div>
+
+      <!-- Member 10: Jitu Mondal -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Jitu.jpg" alt="Jitu Mondal" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Jitu+Mondal&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamjitu">Jitu Mondal</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole10">Transport Lead</p>
+      </div>
+
+      <!-- Member 11: Atanu Mondal -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Atanu.jpg" alt="Atanu Mondal" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Atanu+Mondal&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamAtanu">Atanu Mondal</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole11">Volunteer Lead</p>
+      </div>
+
+      <!-- Member 12: Deep1 Mondal -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Deep1.jpg" alt="Deep1 Mondal" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Deep1+Mondal&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamDeep1">Deep1 Mondal</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole12">Volunteer Lead</p>
+      </div>
+
+      <!-- Member 13: Deep2 Mondal -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Deep2.jpg" alt="Deep2 Mondal" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Deep2+Mondal&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamDeep2">Deep2 Mondal</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole13">Volunteer Lead</p>
+      </div>
+      
+      <!-- Member 14: Piyush Diyasi -->
+      <div class="text-center group bg-theme-card/85 backdrop-blur-md p-6 rounded-2xl hover:bg-theme-card/95 transition-all border border-transparent hover:border-theme-accent/30 shadow-lg">
+        <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-theme-accent/20 border-2 border-theme-accent p-1 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+           <img src="Piyush.jpg" alt="Piyush Diyasi" class="w-full h-full rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Piyush+Diyasi&background=random&color=fff'">
+        </div>
+        <h3 class="font-bold text-theme-main text-lg" data-i18n="teamPiyush">Piyush Diyasi</h3>
+        <p class="text-theme-accent text-sm" data-i18n="teamRole14">Volunteer Lead</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0a0a0a] py-12 text-center text-theme-muted">
+    <div class="max-w-4xl mx-auto px-4">
+      <p class="font-heading font-bold text-3xl text-theme-accent mb-4 tracking-widest drop-shadow-md">ALOKA 26'</p>
+      <p data-i18n="footerText" class="text-base mb-6 max-w-md mx-auto opacity-80">Organised by Dj army. Step Into a Divine Avatar.</p>
+      
+      <!-- Added Contact Info -->
+      <p class="text-sm md:text-base mb-8 text-theme-main font-medium border-t border-b border-theme-accent/20 py-3 inline-block">
+        <span data-i18n="contactText">For any query CONTACT US :-</span> <br class="md:hidden" />
+        <a href="tel:7909026970" class="hover:text-theme-accent transition-colors">79090 26970</a> , 
+        <a href="tel:9142927844" class="hover:text-theme-accent transition-colors">91429 27844</a> , 
+        <a href="tel:8757281647" class="hover:text-theme-accent transition-colors">87572 81647</a>
+      </p>
+
+      <!-- Added Follow Us -->
+      <p data-i18n="followUs" class="mb-4 text-theme-muted font-semibold tracking-wide uppercase text-sm">Follow Us</p>
+      
+      <div class="flex justify-center gap-6">
+        <a href="https://instagram.com/thecomedywaale?srtk=MWdzZmhrbmNlYzM1Nw%3D%3D" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-theme-card flex items-center justify-center text-theme-accent hover:bg-theme-accent hover:text-theme-bg transition-all shadow-lg hover:-translate-y-1.5 border border-theme-accent/20">
+          <i class="fab fa-instagram text-2xl"></i>
+        </a>
+        <a href="https://www.facebook.com/share/1FWsChJZwe/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-theme-card flex items-center justify-center text-theme-accent hover:bg-theme-accent hover:text-theme-bg transition-all shadow-lg hover:-translate-y-1.5 border border-theme-accent/20">
+          <i class="fab fa-facebook-f text-2xl"></i>
+        </a>
+      </div>
+      <div class="mt-10 pt-6 border-t border-white/10">
+        <p class="text-sm opacity-50">&copy; 2026 ALOKA | Dj army. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Logic Scripts -->
+  <script>
+    // 1. Language Translation Data
+    const translations = {
+      en: {
+        navHome: "Home",
+        navEvents: "Event",
+        navSchedule: "Schedule",
+        navTeam: "Team Member",
+        orgBy: "Organised by Dj army",
+        heroSub: "Step Into a Divine Avatar",
+        festDates: "8th & 11th November 2026",
+        venue: "School Para | Kali Mandir | Nutangram",
+        exploreBtn: "Explore Events",
+        eventsTitle: "Featured Events",
+        aparupaDesc: "Rangoli & Alpona Reel Competition (Only for Females)",
+        bahuroopiDesc: "Cosplay, Fancy Dress & Ramp Walk. Theme: Indian Gods, Mythology, Divine.",
+        rangamanchaDesc: "Singing, Dancing, Instrumental & Poetry Recitation.",
+        regBtn: "Register Now",
+        scheduleTitle: "Fest Schedule",
+        teamTitle: "Team Members",
+        teamSub: "The dedicated members working behind the scenes to make ALOKA 26' a grand success.",
+        teamRony: "Rony Mondal",
+        teamShubhojeet: "Shubhojeet Mondal",
+        teamMritunjay: "Mritunjay Majee",
+        teamChinmoy: "Chinmoy Majee",
+        teamSomnath: "Somnath Mondal",
+        teamRintu: "Rintu Mondal",
+        teamChapa: "Chapa Mondal",
+        teamPintu: "Pintu Mondal",
+        teamSantanu: "Santanu Majee",
+        teamjitu: "Jitu Mondal",
+        teamAtanu: "Atanu Mondal",
+        teamDeep1: "Deep1 Mondal",
+        teamDeep2: "Deep2 Mondal",
+        teamPiyush: "Piyush Diyasi",
+        teamRole1: "Event Head",
+        teamRole2: "Creative Lead",
+        teamRole3: "Tech Lead",
+        teamRole4: "Tech Lead",
+        teamRole5: "Management Lead",
+        teamRole6: "Finance Head",
+        teamRole7: "Support Lead",
+        teamRole8: "Marketing Lead",
+        teamRole9: "Sponsorship Lead",
+        teamRole10: "Transport Lead",
+        teamRole11: "Volunteer Lead",
+        teamRole12: "Volunteer Lead",
+        teamRole13: "Volunteer Lead",
+        teamRole14: "Volunteer Lead",
+        contactText: "For any query CONTACT US :-",
+        followUs: "Follow Us",
+        footerText: "Organised by Dj army. Step Into a Divine Avatar."
+      },
+      bn: {
+        navHome: "হোম",
+        navEvents: "ইভেন্ট",
+        navSchedule: "সময়সূচী",
+        navTeam: "টিম মেম্বার",
+        orgBy: "ডিজে আর্মি দ্বারা আয়োজিত",
+        heroSub: "একটি ঐশ্বরিক অবতারে প্রবেশ করুন",
+        festDates: "৮ এবং ১১ নভেম্বর ২০২৬",
+        venue: "স্কুল পাড়া | কালী মন্দির | নতুনগ্রাম",
+        exploreBtn: "ইভেন্টগুলি দেখুন",
+        eventsTitle: "প্রধান ইভেন্টসমূহ",
+        aparupaDesc: "রঙ্গোলি এবং আলপনা রিল প্রতিযোগিতা (শুধুমাত্র মহিলাদের জন্য)",
+        bahuroopiDesc: "কসপ্লে, ফ্যান্সি ড্রেস এবং র‍্যাম্প ওয়াক। থিম: ভারতীয় দেবতা, পৌরাণিক কথা।",
+        rangamanchaDesc: "গান, নাচ, বাদ্যযন্ত্র এবং কবিতা আবৃত্তি।",
+        regBtn: "নিবন্ধন করুন",
+        scheduleTitle: "উৎসবের সময়সূচী",
+        teamTitle: "টিম মেম্বার",
+        teamSub: "নিবেদিত সদস্যরা যারা ALOKA 26' কে সফল করতে কাজ করছেন।",
+        teamRony: "রনি মন্ডল",
+        teamShubhojeet: "শুভজিৎ মন্ডল",
+        teamMritunjay: "মৃত্যুঞ্জয় মাজী",
+        teamChinmoy: "চিন্ময় মাজী",
+        teamSomnath: "সোমনাথ মন্ডল",
+        teamRintu: "রিন্টু মন্ডল",
+        teamChapa: "চাঁপা মন্ডল",
+        teamPintu: "পিন্টু মন্ডল",
+        teamSantanu: "শান্তনু মাজী",
+        teamjitu: "জিতু মন্ডল",
+        teamAtanu: "অতনু মন্ডল",
+        teamDeep1: "দীপ১ মন্ডল",
+        teamDeep2: "দীপ২ মন্ডল",
+        teamPiyush: "পিযুষ দিয়াসী",
+        teamRole1: "ইভেন্ট হেড",
+        teamRole2: "ক্রিয়েটিভ লিড",
+        teamRole3: "টেক লিড",
+        teamRole4: "টেক লিড",
+        teamRole5: "ম্যানেজমেন্ট লিড",
+        teamRole6: "ফাইন্যান্স হেড",
+        teamRole7: "সাপোর্ট লিড",
+        teamRole8: "মার্কেটিং লিড",
+        teamRole9: "স্পনসরশিপ লিড",
+        teamRole10: "ট্রান্সপোর্ট লিড",
+        teamRole11: "ভলান্টিয়ার লিড",
+        teamRole12: "ভলান্টিয়ার লিড",
+        teamRole13: "ভলান্টিয়ার লিড",
+        teamRole14: "ভলান্টিয়ার লিড",
+        contactText: "যেকোনো প্রশ্নের জন্য আমাদের সাথে যোগাযোগ করুন :-",
+        followUs: "আমাদের অনুসরণ করুন",
+        footerText: "ডিজে আর্মি দ্বারা আয়োজিত। একটি ঐশ্বরিক অবতারে প্রবেশ করুন।"
+      },
+      hi: {
+        navHome: "होम",
+        navEvents: "इवेंट",
+        navSchedule: "कार्यक्रम",
+        navTeam: "टीम मेंबर",
+        orgBy: "डीजे आर्मी द्वारा आयोजित",
+        heroSub: "एक दिव्य अवतार में कदम रखें",
+        festDates: "8 और 11 नवंबर 2026",
+        venue: "स्कूल पारा | काली मंदिर | नूतनग्राम",
+        exploreBtn: "इवेंट्स देखें",
+        eventsTitle: "प्रमुख इवेंट्स",
+        aparupaDesc: "रंगोली और अल्पना रील प्रतियोगिता (केवल महिलाओं के लिए)",
+        bahuroopiDesc: "कॉस्प्ले, फैंसी ड्रेस और रैंप वॉक। थीम: भारतीय देवता, पौराणिक कथाएं।",
+        rangamanchaDesc: "गायन, नृत्य, वाद्य यंत्र और कविता पाठ।",
+        regBtn: "अभी पंजीकरण करें",
+        scheduleTitle: "उत्सव का कार्यक्रम",
+        teamTitle: "टीम मेंबर्स",
+        teamSub: "समर्पित सदस्य जो ALOKA 26' को सफल बनाने के लिए काम कर रहे हैं।",
+        teamRony: "रॉनी मंडल",
+        teamShubhojeet: "शुभोजीत मंडल",
+        teamMritunjay: "मृत्युंजय माजी",
+        teamChinmoy: "चिन्मय माजी",
+        teamSomnath: "सोमनाथ मंडल",
+        teamRintu: "रिंटू मंडल",
+        teamChapa: "चांपा मंडल",
+        teamPintu: "पिंटू मंडल",
+        teamSantanu: "शांतनु माजी",
+        teamjitu: "जीतु मंडल",
+        teamAtanu: "अतनु मंडल",
+        teamDeep1: "दीप1 मंडल",
+        teamDeep2: "दीप2 मंडल",
+        teamPiyush: "पीयूष दियासी",
+        teamRole1: "इवेंट हेड",
+        teamRole2: "क्रिएटिव लीड",
+        teamRole3: "टेक लीड",
+        teamRole4: "टेक लीड",
+        teamRole5: "मैनेजमेंट लीड",
+        teamRole6: "फाइनेंस हेड",
+        teamRole7: "सपोर्ट लीड",
+        teamRole8: "मार्केटिंग लीड",
+        teamRole9: "प्रायोजन लीड",
+        teamRole10: "ट्रांसपोर्ट लीड",
+        teamRole11: "स्वयंसेवक लीड",
+        teamRole12: "स्वयंसेवक लीड",
+        teamRole13: "स्वयंसेवक लीड",
+        teamRole14: "स्वयंसेवक लीड",
+        contactText: "किसी भी प्रश्न के लिए हमसे संपर्क करें :-",
+        followUs: "हमें फॉलो करें",
+        footerText: "डीजे आर्मी द्वारा आयोजित। एक दिव्य अवतार में कदम रखें।"
+      }
+    };
+
+    // 2. Language Switcher Logic
+    const langSelector = document.getElementById('langSelector');
+    langSelector.addEventListener('change', (e) => {
+      const lang = e.target.value;
+      const elementsToTranslate = document.querySelectorAll('[data-i18n]');
+      
+      elementsToTranslate.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.style.opacity = '0';
+          setTimeout(() => {
+            el.innerHTML = translations[lang][key]; 
+            el.style.opacity = '1';
+          }, 200);
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      el.style.transition = 'opacity 0.2s ease-in-out';
+    });
+
+    // 3. Theme Switcher Logic
+    const themeSelector = document.getElementById('themeSelector');
+    themeSelector.addEventListener('change', (e) => {
+      const theme = e.target.value;
+      if (theme === 'default') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    });
+
+    // 4. Mobile Menu Toggle Logic
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+
+    // Close mobile menu when a link is clicked
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>
