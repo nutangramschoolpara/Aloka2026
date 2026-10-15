@@ -67,7 +67,7 @@
     /* Theme 3: Emerald Forest */
     [data-theme="emerald"] {
       --theme-bg: #064e3b;
-      --theme-bg-image: url('Emerald.png');
+      --theme-bg-image: url('emerald.png');
       --theme-card: #065f46;
       --theme-accent: #10b981;
       --theme-accent-hover: #059669;
@@ -78,7 +78,7 @@
     /* Theme 4: Midnight Purple */
     [data-theme="purple"] {
       --theme-bg: #2e1065;
-      --theme-bg-image: url('Purple.png');
+      --theme-bg-image: url('purple.png');
       --theme-card: #3b0764;
       --theme-accent: #d946ef;
       --theme-accent-hover: #c026d3;
@@ -89,7 +89,7 @@
     /* Theme 5: Ocean Blue */
     [data-theme="ocean"] {
       --theme-bg: #082f49;
-      --theme-bg-image: url('Ocean.png');
+      --theme-bg-image: url('ocean.png');
       --theme-card: #0c4a6e;
       --theme-accent: #38bdf8;
       --theme-accent-hover: #0ea5e9;
@@ -100,7 +100,7 @@
     /* Theme 6: Sunset Orange */
     [data-theme="sunset"] {
       --theme-bg: #7c2d12;
-      --theme-bg-image: url('Sunset.png');
+      --theme-bg-image: url('sunset.png');
       --theme-card: #9a3412;
       --theme-accent: #f97316;
       --theme-accent-hover: #ea580c;
@@ -122,7 +122,7 @@
     /* Theme 8: Sakura Pink */
     [data-theme="sakura"] {
       --theme-bg: #831843;
-      --theme-bg-image: url('Sakura.png');
+      --theme-bg-image: url('sakura.png');
       --theme-card: #9d174d;
       --theme-accent: #f472b6;
       --theme-accent-hover: #ec4899;
@@ -133,7 +133,7 @@
     /* Theme 9: Retro Vintage */
     [data-theme="retro"] {
       --theme-bg: #422006;
-      --theme-bg-image: url('Retro.png');
+      --theme-bg-image: url('retro.png');
       --theme-card: #713f12;
       --theme-accent: #facc15;
       --theme-accent-hover: #eab308;
@@ -144,7 +144,7 @@
     /* Theme 10: Electric Indigo */
     [data-theme="indigo"] {
       --theme-bg: #1e1b4b;
-      --theme-bg-image: url('Indigo.png');
+      --theme-bg-image: url('indigo.png');
       --theme-card: #312e81;
       --theme-accent: #818cf8;
       --theme-accent-hover: #6366f1;
@@ -288,6 +288,30 @@
             <div class="flex items-center gap-3 text-sm mb-6 font-bold text-theme-accent bg-theme-bg/80 w-fit px-4 py-2 rounded-lg border border-theme-accent/20 shadow-inner">
               <i class="far fa-calendar-alt text-lg"></i> <span>8.11.2026</span>
             </div>
+            
+            <!-- APARUPA Countdown Timer -->
+            <div id="timer-aparupa" class="flex justify-between items-center gap-1 mb-6 bg-theme-bg/60 p-3 rounded-xl border border-theme-accent/20 shadow-inner">
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent days">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tDays">Days</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent hours">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tHours">Hrs</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent minutes">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tMins">Mins</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent seconds">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tSecs">Secs</span>
+              </div>
+            </div>
+
           </div>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJfPNE5cXSSaE0CGRNlY-_HwJ6ECcmZFksUlEzV5HlMCBDYQ/viewform" target="_blank" class="w-full inline-flex justify-center items-center gap-2 bg-theme-accent text-theme-bg hover:bg-theme-accent-hover font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg transform active:scale-95 text-lg">
             <span data-i18n="regBtn">Register Now</span> <i class="fas fa-arrow-right text-sm ml-1"></i>
@@ -307,6 +331,30 @@
             <div class="flex items-center gap-3 text-sm mb-6 font-bold text-theme-accent bg-theme-bg/80 w-fit px-4 py-2 rounded-lg border border-theme-accent/20 shadow-inner">
               <i class="far fa-calendar-alt text-lg"></i> <span>11.11.2026 (5:00 PM)</span>
             </div>
+
+            <!-- BAHUROOPI Countdown Timer -->
+            <div id="timer-bahuroopi" class="flex justify-between items-center gap-1 mb-6 bg-theme-bg/60 p-3 rounded-xl border border-theme-accent/20 shadow-inner">
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent days">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tDays">Days</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent hours">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tHours">Hrs</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent minutes">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tMins">Mins</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent seconds">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tSecs">Secs</span>
+              </div>
+            </div>
+
           </div>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdalKJEoGARSaGp9juHzRgSLZf7HCSnZ1nnPd606X6d06a0VA/viewform" target="_blank" class="w-full inline-flex justify-center items-center gap-2 bg-theme-accent text-theme-bg hover:bg-theme-accent-hover font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg transform active:scale-95 text-lg">
             <span data-i18n="regBtn">Register Now</span> <i class="fas fa-arrow-right text-sm ml-1"></i>
@@ -326,6 +374,30 @@
             <div class="flex items-center gap-3 text-sm mb-6 font-bold text-theme-accent bg-theme-bg/80 w-fit px-4 py-2 rounded-lg border border-theme-accent/20 shadow-inner">
               <i class="far fa-calendar-alt text-lg"></i> <span>11.11.2026 (5:00 PM)</span>
             </div>
+
+            <!-- RANGAMANCHA Countdown Timer -->
+            <div id="timer-rangamancha" class="flex justify-between items-center gap-1 mb-6 bg-theme-bg/60 p-3 rounded-xl border border-theme-accent/20 shadow-inner">
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent days">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tDays">Days</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent hours">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tHours">Hrs</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent minutes">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tMins">Mins</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent seconds">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tSecs">Secs</span>
+              </div>
+            </div>
+
           </div>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeyAAsk48zjS9lL-ckRw3NX4qTz3Bnv73_FCU985pBNNRJBew/viewform" target="_blank" class="w-full inline-flex justify-center items-center gap-2 bg-theme-accent text-theme-bg hover:bg-theme-accent-hover font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg transform active:scale-95 text-lg">
             <span data-i18n="regBtn">Register Now</span> <i class="fas fa-arrow-right text-sm ml-1"></i>
@@ -371,7 +443,7 @@
                 <i class="fas fa-mask w-5 h-5 flex items-center justify-center"></i>
               </div>
               <div class="pt-1">
-                <p class="font-bold text-xl text-theme-main tracking-wide">BAHUROOPI</p>
+                <p class="font-bold text-xl text-theme-main tracking-wide">BAHUROOPI (5:00 PM Onwards)</p>
                 <p class="text-base mt-1.5 opacity-90">Cosplay, Fancy Dress, and Ramp Walk Showcase.</p>
               </div>
             </li>
@@ -536,7 +608,6 @@
       <p class="font-heading font-bold text-3xl text-theme-accent mb-4 tracking-widest drop-shadow-md">ALOKA 26'</p>
       <p data-i18n="footerText" class="text-base mb-6 max-w-md mx-auto opacity-80">Organised by Dj army. Step Into a Divine Avatar.</p>
       
-      <!-- Added Contact Info -->
       <p class="text-sm md:text-base mb-8 text-theme-main font-medium border-t border-b border-theme-accent/20 py-3 inline-block">
         <span data-i18n="contactText">For any query CONTACT US :-</span> <br class="md:hidden" />
         <a href="tel:7909026970" class="hover:text-theme-accent transition-colors">79090 26970</a> , 
@@ -544,7 +615,6 @@
         <a href="tel:8757281647" class="hover:text-theme-accent transition-colors">87572 81647</a>
       </p>
 
-      <!-- Added Follow Us -->
       <p data-i18n="followUs" class="mb-4 text-theme-muted font-semibold tracking-wide uppercase text-sm">Follow Us</p>
       
       <div class="flex justify-center gap-6">
@@ -613,7 +683,11 @@
         teamRole14: "Volunteer Lead",
         contactText: "For any query CONTACT US :-",
         followUs: "Follow Us",
-        footerText: "Organised by Dj army. Step Into a Divine Avatar."
+        footerText: "Organised by Dj army. Step Into a Divine Avatar.",
+        tDays: "Days",
+        tHours: "Hrs",
+        tMins: "Mins",
+        tSecs: "Secs"
       },
       bn: {
         navHome: "হোম",
@@ -663,7 +737,11 @@
         teamRole14: "ভলান্টিয়ার লিড",
         contactText: "যেকোনো প্রশ্নের জন্য আমাদের সাথে যোগাযোগ করুন :-",
         followUs: "আমাদের অনুসরণ করুন",
-        footerText: "ডিজে আর্মি দ্বারা আয়োজিত। একটি ঐশ্বরিক অবতারে প্রবেশ করুন।"
+        footerText: "ডিজে আর্মি দ্বারা আয়োজিত। একটি ঐশ্বরিক অবতারে প্রবেশ করুন।",
+        tDays: "দিন",
+        tHours: "ঘণ্টা",
+        tMins: "মিনিট",
+        tSecs: "সেকেন্ড"
       },
       hi: {
         navHome: "होम",
@@ -713,7 +791,11 @@
         teamRole14: "स्वयंसेवक लीड",
         contactText: "किसी भी प्रश्न के लिए हमसे संपर्क करें :-",
         followUs: "हमें फॉलो करें",
-        footerText: "डीजे आर्मी द्वारा आयोजित। एक दिव्य अवतार में कदम रखें।"
+        footerText: "डीजे आर्मी द्वारा आयोजित। एक दिव्य अवतार में कदम रखें।",
+        tDays: "दिन",
+        tHours: "घंटे",
+        tMins: "मिनट",
+        tSecs: "सेकंड"
       }
     };
 
@@ -762,13 +844,51 @@
       }
     });
 
-    // Close mobile menu when a link is clicked
     const mobileLinks = mobileMenu.querySelectorAll('a');
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
       });
     });
+
+    // 5. Countdown Timer Logic for Events
+    const timers = [
+      { id: 'timer-aparupa', date: new Date('Nov 8, 2026 00:00:00').getTime() },
+      { id: 'timer-bahuroopi', date: new Date('Nov 11, 2026 17:00:00').getTime() },
+      { id: 'timer-rangamancha', date: new Date('Nov 11, 2026 17:00:00').getTime() }
+    ];
+
+    const updateTimers = () => {
+      const now = new Date().getTime();
+
+      timers.forEach(timer => {
+        const el = document.getElementById(timer.id);
+        if (!el) return;
+
+        const distance = timer.date - now;
+
+        // If the countdown is over, hide the numbers and show a message
+        if (distance < 0) {
+          el.innerHTML = '<div class="text-center w-full font-bold text-theme-accent text-lg py-2">Event Has Started!</div>';
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update HTML securely
+        el.querySelector('.days').innerText = days < 10 ? '0' + days : days;
+        el.querySelector('.hours').innerText = hours < 10 ? '0' + hours : hours;
+        el.querySelector('.minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+        el.querySelector('.seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+      });
+    };
+
+    // Run the timer logic every second
+    setInterval(updateTimers, 1000);
+    updateTimers(); // Call immediately on page load
   </script>
 
 </body>
