@@ -254,7 +254,7 @@
       
       <!-- Date & Venue Block -->
       <div class="inline-block border border-theme-accent/40 rounded-2xl px-8 py-5 mb-10 bg-theme-card/85 backdrop-blur-md shadow-2xl">
-        <p data-i18n="festDates" class="text-2xl md:text-3xl font-bold text-theme-main font-heading">8th & 11th November 2026</p>
+        <p data-i18n="festDates" class="text-2xl md:text-3xl font-bold text-theme-main font-heading">8th, 10th & 11th November 2026</p>
         <p data-i18n="venue" class="text-sm md:text-base mt-3 text-theme-muted tracking-wide">School Para | Kali Mandir | Nutangram</p>
       </div>
 
@@ -318,8 +318,51 @@
           </a>
         </div>
       </div>
+      
+      <!-- Event 2: SRIJAN -->
+      <div class="bg-theme-card/85 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-theme-accent/20 hover:border-theme-accent/80 hover:shadow-2xl hover:shadow-theme-accent/20 transition-all duration-300 group flex flex-col">
+        <div class="relative w-full bg-black/50 flex items-center justify-center p-4 md:p-6 overflow-hidden">
+          <div class="absolute inset-0 bg-theme-accent opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl"></div>
+          <img src="Srijan.jpg" alt="Srijan Poster" class="w-full h-auto max-h-[380px] object-contain rounded-xl group-hover:scale-[1.02] transition-transform duration-500 relative z-10 shadow-2xl border border-white/10" onerror="this.src='https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=600';">
+        </div>
+        <div class="p-6 md:p-8 flex-grow flex flex-col justify-between border-t border-theme-accent/10 relative">
+          <div>
+            <p data-i18n="srijanDesc" class="text-theme-main text-base md:text-lg mb-5 font-medium leading-relaxed">Drawing Competition (Age: 4-18 Years). Free Entry.</p>
+            <div class="flex items-center gap-3 text-sm mb-6 font-bold text-theme-accent bg-theme-bg/80 w-fit px-4 py-2 rounded-lg border border-theme-accent/20 shadow-inner">
+              <i class="far fa-calendar-alt text-lg"></i> <span>10.11.2026 (9:00 AM)</span>
+            </div>
+            
+            <!-- SRIJAN Countdown Timer -->
+            <div id="timer-srijan" class="flex justify-between items-center gap-1 mb-6 bg-theme-bg/60 p-3 rounded-xl border border-theme-accent/20 shadow-inner">
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent days">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tDays">Days</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent hours">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tHours">Hrs</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent minutes">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tMins">Mins</span>
+              </div>
+              <span class="text-theme-accent font-bold opacity-30 text-lg">:</span>
+              <div class="text-center flex-1">
+                <span class="block text-2xl font-bold text-theme-accent seconds">00</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest opacity-80" data-i18n="tSecs">Secs</span>
+              </div>
+            </div>
 
-      <!-- Event 2: BAHUROOPI -->
+          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGHBVsAI5EwDMxdN2vy1aA8BAVfjWxZ_YAD4-bXr9BBYjG3A/viewform" target="_blank" class="w-full inline-flex justify-center items-center gap-2 bg-theme-accent text-theme-bg hover:bg-theme-accent-hover font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg transform active:scale-95 text-lg">
+            <span data-i18n="regBtn">Register Now</span> <i class="fas fa-arrow-right text-sm ml-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Event 3: BAHUROOPI -->
       <div class="bg-theme-card/85 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-theme-accent/20 hover:border-theme-accent/80 hover:shadow-2xl hover:shadow-theme-accent/20 transition-all duration-300 group flex flex-col">
         <div class="relative w-full bg-black/50 flex items-center justify-center p-4 md:p-6 overflow-hidden">
           <div class="absolute inset-0 bg-theme-accent opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl"></div>
@@ -362,7 +405,7 @@
         </div>
       </div>
 
-      <!-- Event 3: RANGAMANCHA -->
+      <!-- Event 4: RANGAMANCHA -->
       <div class="bg-theme-card/85 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-theme-accent/20 hover:border-theme-accent/80 hover:shadow-2xl hover:shadow-theme-accent/20 transition-all duration-300 group flex flex-col">
         <div class="relative w-full bg-black/50 flex items-center justify-center p-4 md:p-6 overflow-hidden">
           <div class="absolute inset-0 bg-theme-accent opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl"></div>
@@ -432,7 +475,25 @@
           </ul>
         </div>
 
-        <!-- Day 2 -->
+        <!-- Day 2 (SRIJAN) -->
+        <div class="bg-theme-card/95 p-6 md:p-8 rounded-2xl border-l-4 border-theme-accent shadow-xl hover:shadow-2xl transition-shadow relative overflow-hidden">
+          <i class="fas fa-palette absolute -bottom-4 -right-4 text-[8rem] text-theme-bg opacity-20 pointer-events-none"></i>
+          
+          <h3 class="text-2xl font-bold mb-6 font-heading text-theme-main border-b border-theme-accent/20 pb-3">10th Nov 2026</h3>
+          <ul class="space-y-5 text-theme-muted relative z-10">
+            <li class="flex items-start gap-4">
+              <div class="bg-theme-accent/20 p-3 rounded-full text-theme-accent shrink-0 border border-theme-accent/30 shadow-sm">
+                <i class="fas fa-paint-brush w-5 h-5 flex items-center justify-center"></i>
+              </div>
+              <div class="pt-1">
+                <p class="font-bold text-xl text-theme-main tracking-wide">SRIJAN (9:00 AM Onwards)</p>
+                <p class="text-base mt-1.5 opacity-90">Drawing Competition (Age: 4-18 Years). Free Entry.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Day 3 -->
         <div class="bg-theme-card/95 p-6 md:p-8 rounded-2xl border-l-4 border-theme-accent shadow-xl hover:shadow-2xl transition-shadow relative overflow-hidden">
           <i class="fas fa-masks-theater absolute -bottom-4 -right-4 text-[8rem] text-theme-bg opacity-20 pointer-events-none"></i>
           
@@ -642,11 +703,12 @@
         navTeam: "Team Member",
         orgBy: "Organised by Dj army",
         heroSub: "Step Into a Divine Avatar",
-        festDates: "8th & 11th November 2026",
+        festDates: "8th, 10th & 11th November 2026",
         venue: "School Para | Kali Mandir | Nutangram",
         exploreBtn: "Explore Events",
         eventsTitle: "Featured Events",
         aparupaDesc: "Rangoli & Alpona Reel Competition (Only for Females)",
+        srijanDesc: "Drawing Competition. Age 4-18 Years. Free Entry.",
         bahuroopiDesc: "Cosplay, Fancy Dress & Ramp Walk. Theme: Indian Gods, Mythology, Divine.",
         rangamanchaDesc: "Singing, Dancing, Instrumental & Poetry Recitation.",
         regBtn: "Register Now",
@@ -696,11 +758,12 @@
         navTeam: "টিম মেম্বার",
         orgBy: "ডিজে আর্মি দ্বারা আয়োজিত",
         heroSub: "একটি ঐশ্বরিক অবতারে প্রবেশ করুন",
-        festDates: "৮ এবং ১১ নভেম্বর ২০২৬",
+        festDates: "৮, ১০ এবং ১১ নভেম্বর ২০২৬",
         venue: "স্কুল পাড়া | কালী মন্দির | নতুনগ্রাম",
         exploreBtn: "ইভেন্টগুলি দেখুন",
         eventsTitle: "প্রধান ইভেন্টসমূহ",
         aparupaDesc: "রঙ্গোলি এবং আলপনা রিল প্রতিযোগিতা (শুধুমাত্র মহিলাদের জন্য)",
+        srijanDesc: "অঙ্কন প্রতিযোগিতা, বয়স ৪-১৮ বছর। প্রবেশ মূল্য বিনামূল্যে।",
         bahuroopiDesc: "কসপ্লে, ফ্যান্সি ড্রেস এবং র‍্যাম্প ওয়াক। থিম: ভারতীয় দেবতা, পৌরাণিক কথা।",
         rangamanchaDesc: "গান, নাচ, বাদ্যযন্ত্র এবং কবিতা আবৃত্তি।",
         regBtn: "নিবন্ধন করুন",
@@ -750,11 +813,12 @@
         navTeam: "टीम मेंबर",
         orgBy: "डीजे आर्मी द्वारा आयोजित",
         heroSub: "एक दिव्य अवतार में कदम रखें",
-        festDates: "8 और 11 नवंबर 2026",
+        festDates: "8, 10 और 11 नवंबर 2026",
         venue: "स्कूल पारा | काली मंदिर | नूतनग्राम",
         exploreBtn: "इवेंट्स देखें",
         eventsTitle: "प्रमुख इवेंट्स",
         aparupaDesc: "रंगोली और अल्पना रील प्रतियोगिता (केवल महिलाओं के लिए)",
+        srijanDesc: "ड्राइंग प्रतियोगिता, आयु 4-18 वर्ष। निःशुल्क प्रवेश।",
         bahuroopiDesc: "कॉस्प्ले, फैंसी ड्रेस और रैंप वॉक। थीम: भारतीय देवता, पौराणिक कथाएं।",
         rangamanchaDesc: "गायन, नृत्य, वाद्य यंत्र और कविता पाठ।",
         regBtn: "अभी पंजीकरण करें",
@@ -864,6 +928,7 @@
     // 5. Countdown Timer Logic for Events
     const timers = [
       { id: 'timer-aparupa', date: new Date('Nov 8, 2026 00:00:00').getTime() },
+      { id: 'timer-srijan', date: new Date('Nov 10, 2026 09:00:00').getTime() },
       { id: 'timer-bahuroopi', date: new Date('Nov 11, 2026 17:00:00').getTime() },
       { id: 'timer-rangamancha', date: new Date('Nov 11, 2026 17:00:00').getTime() }
     ];
@@ -902,4 +967,4 @@
   </script>
 
 </body>
-</html>
+                                                           </html>
